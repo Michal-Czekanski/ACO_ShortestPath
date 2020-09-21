@@ -23,3 +23,7 @@ class Edge:
     def __addSelfToVertexes__(self):
         for vertex in self.getVertexes():
             vertex.edges.append(self)
+
+    def delete(self):
+        for vertex in self.vertexes:
+            vertex.edges.remove(self)
