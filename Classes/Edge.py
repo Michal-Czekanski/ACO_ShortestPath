@@ -10,3 +10,11 @@ class Edge:
 
     def getVertexes(self):
         return list(self.vertexes)
+
+    def getOtherEnd(self, firstEnd: Vertex):
+        if firstEnd in self.vertexes:
+            for vertex in self.getVertexes():
+                if not vertex is firstEnd:
+                    return vertex
+
+        return None
