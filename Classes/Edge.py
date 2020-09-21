@@ -7,3 +7,6 @@ class Edge:
         self.desirability = 1 / weight
         self.depositedPheromone = 0
         self.traversible = True
+
+    def getVertexes(self):
+        return list(self.vertexes)
