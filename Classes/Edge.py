@@ -7,6 +7,7 @@ class Edge:
         self.desirability = 1 / weight
         self.depositedPheromone = 0
         self.traversible = True
+        self.__addSelfToVertexes__()
 
     def getVertexes(self):
         return list(self.vertexes)
@@ -18,3 +19,7 @@ class Edge:
                     return vertex
 
         return None
+
+    def __addSelfToVertexes__(self):
+        for vertex in self.getVertexes():
+            vertex.edges.append(self)
