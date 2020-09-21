@@ -1,9 +1,9 @@
 class Vertex():
-    def __init__(ind: int):
+    def __init__(self, ind: int):
         self.ind= ind
         self.edges = []
     
-    def getTraversibleEdges():
+    def getTraversibleEdges(self):
         traversibleEdges = []
         for edge in self.edges:
             if edge.traversible:
