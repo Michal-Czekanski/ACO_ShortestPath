@@ -1,4 +1,4 @@
-from Vertex import Vertex
+from src.Classes.Vertex import Vertex
 
 class Edge:
     def __init__(self, v1: Vertex, v2: Vertex, weight: int):
