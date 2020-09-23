@@ -20,5 +20,17 @@ class TestPath(unittest.TestCase):
         self.assertIn(edge1, path.edges)
         self.assertIn(edge2, path.edges)
 
+    def test_pathAsString(self):
+        vertex1 = Vertex(1)
+        vertex2 = Vertex(2)
+        vertex3 = Vertex(3)
+
+        edge1 = Edge(vertex1, vertex2, 1)
+        edge2 = Edge(vertex2, vertex3, 2)
+
+        path = Path(vertex1, [edge1, edge2], 1 + 2)
+
+        self.assertEqual(path.pathAsString(), "1 - 2 - 3 --- weight = 3")
+
 if __name__ == "__main__":
     unittest.main()
