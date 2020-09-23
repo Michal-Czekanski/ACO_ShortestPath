@@ -6,3 +6,17 @@ class Path:
         self.beginning = beginning
         self.edges = edges
         self.cost = cost
+
+    def printPath(self):
+        print(self.__pathAsString__())
+
+    def __pathAsString__(self):
+        result = str(beginning.ind)
+        currentVertex = beginning
+        for edge in edges:
+            currentVertex = edge.getOtherEnd(currentVertex)
+            result += " - " + str(currentVertex)
+
+        result += " weight : " + str(self.cost)
+
+        return result
