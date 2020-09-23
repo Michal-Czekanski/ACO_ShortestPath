@@ -10,7 +10,7 @@ class Path:
     def printPath(self):
         print(self.__pathAsString__())
 
-    def __pathAsString__(self):
+    def pathAsString(self):
         result = str(beginning.ind)
         currentVertex = beginning
         for edge in edges:
