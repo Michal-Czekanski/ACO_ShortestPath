@@ -22,5 +22,16 @@ class TestEdge(unittest.TestCase):
         self.assertEqual(edge.getOtherEnd(vertex2), vertex1)
         self.assertEqual(edge.getOtherEnd(vertex3), None)
 
+    def test_delete(self):
+        vertex1 = Vertex(1)
+        vertex2 = Vertex(2)
+
+        edge = Edge(vertex1, vertex2, 3)
+        edge.delete()
+
+        self.assertNotIn(edge, vertex1.edges)
+        self.assertNotIn(edge, vertex2.edges)
+
+
 if __name__ == "__main__":
     unittest.main()
