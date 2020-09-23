@@ -12,3 +12,6 @@ class TestVertex(unittest.TestCase):
         edge2.traversible = False
 
         self.assertNotIn(edge2, vertex1.getTraversibleEdges())
+
+if __name__ == '__main__':
+    unittest.main()
