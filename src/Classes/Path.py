@@ -11,12 +11,12 @@ class Path:
         print(self.__pathAsString__())
 
     def pathAsString(self):
-        result = str(beginning.ind)
-        currentVertex = beginning
-        for edge in edges:
+        result = str(self.beginning.ind)
+        currentVertex = self.beginning
+        for edge in self.edges:
             currentVertex = edge.getOtherEnd(currentVertex)
-            result += " - " + str(currentVertex)
+            result += " - " + str(currentVertex.ind)
 
-        result += " weight : " + str(self.cost)
+        result += " --- weight = " + str(self.cost)
 
         return result
