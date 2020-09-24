@@ -25,3 +25,11 @@ class Graph:
 
         self.vertexes.append(vertex)
         return True
+
+    def deleteVertex(self, vertex: Vertex):
+        self.vertexes.remove(vertex)
+        vertex.delete()
+
+    def deleteEdge(self, edge: Edge):
+        self.edges.remove(edge)
+        edge.delete()
