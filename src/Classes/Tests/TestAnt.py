@@ -17,7 +17,18 @@ class TestAnt(unittest.TestCase):
 
         self.assertIsNone(ant.createPath(vertex1, vertex2))
 
-    
+    def test_createPath2(self):
+        """Case 2: Path between vertexes exists.
+        """
+        vertex1 = Vertex(1)
+        vertex2 = Vertex(2)
+        edge = Edge(vertex1, vertex2, 3)
+        edge.depositedPheromone = 1
+
+        ant = Ant(1, 1)
+
+        self.assertIsNotNone(ant.createPath(vertex1, vertex2))
+
 
 
 if __name__ == "__main__":
