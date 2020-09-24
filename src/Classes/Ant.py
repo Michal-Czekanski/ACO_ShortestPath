@@ -20,7 +20,7 @@ class Ant:
         traversibleEdges = currentVertex.getTraversibleEdges()
 
         while (not currentVertex is end) and currentVertex.getTraversibleEdges():
-            chosenEdge: Edge = self.chooseEdge(traversibleEdges)
+            chosenEdge: Edge = self.chooseEdgeToTraverse(traversibleEdges)
             chosenEdge.traversible = False
             pathEdges.append(chosenEdge)
             cost += chosenEdge.weight
@@ -32,7 +32,7 @@ class Ant:
             return Path(start, pathEdges, cost)
         return None
 
-    def chooseEdge(self, possibleEdges: List[Edge]) -> Edge:
+    def chooseEdgeToTraverse(self, possibleEdges: List[Edge]) -> Edge:
         chosenEdge = None
 
         sumOfAll = sum([edge.desirability * edge.depositedPheromone for edge in possibleEdges]) \
