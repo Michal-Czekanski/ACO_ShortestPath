@@ -2,7 +2,7 @@ class Vertex():
     def __init__(self, ind: int):
         self.ind= ind
         self.edges = []
-    
+
     def getTraversibleEdges(self):
         traversibleEdges = []
         for edge in self.edges:
@@ -10,3 +10,7 @@ class Vertex():
                 traversibleEdges.append(edge)
 
         return traversibleEdges
+
+    def delete(self):
+        for edge in self.edges:
+            edge.delete()
