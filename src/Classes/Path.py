@@ -8,7 +8,7 @@ class Path:
         self.cost = cost
 
     def printPath(self):
-        print(self.__pathAsString__())
+        print(self.pathAsString())
 
     def pathAsString(self):
         result = str(self.beginning.ind)
