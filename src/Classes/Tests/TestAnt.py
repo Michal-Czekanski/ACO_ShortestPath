@@ -5,8 +5,20 @@ from src.Classes.Vertex import Vertex
 from src.Classes.Edge import Edge
 from src.Classes.Path import Path
 
-class TestAnt:
-    pass
+class TestAnt(unittest.TestCase):
+
+    def test_createPath1(self):
+        """Case 1: Path between vertexes does not exist
+        """
+        vertex1 = Vertex(1)
+        vertex2 = Vertex(2)
+
+        ant = Ant(1, 1)
+
+        self.assertIsNone(ant.createPath(vertex1, vertex2))
+
+    
+
 
 if __name__ == "__main__":
     unittest.main()
