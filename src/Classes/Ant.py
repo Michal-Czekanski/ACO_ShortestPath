@@ -43,7 +43,6 @@ class Ant:
                 probabilityOfChoosing = round(((edge.desirability * self.desirabilityInfluence * edge.depositedPheromone * self.pheromoneInfluence) \
                     / sumOfAll), 2)
 
-                print(probabilityOfChoosing)
                 if random() < probabilityOfChoosing:
                     chosenEdge = edge
                     break
