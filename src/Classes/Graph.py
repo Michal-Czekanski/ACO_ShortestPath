@@ -18,3 +18,10 @@ class Graph:
             return True
         else:
             return False
+
+    def addVertex(self, vertex: Vertex) -> bool:
+        if vertex in self.vertexes:
+            return False
+
+        self.vertexes.append(vertex)
+        return True
