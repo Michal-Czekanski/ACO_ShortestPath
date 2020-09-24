@@ -1,3 +1,5 @@
+from copy import copy
+
 class Vertex():
     def __init__(self, ind: int):
         self.ind= ind
@@ -12,5 +14,7 @@ class Vertex():
         return traversibleEdges
 
     def delete(self):
-        for edge in self.edges:
+        self.ind = None
+        tmpEdgesList = copy(self.edges)
+        for edge in tmpEdgesList:
             edge.delete()
