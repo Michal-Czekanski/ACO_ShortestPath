@@ -49,3 +49,9 @@ class Ant:
                     break
 
         return chosenEdge
+
+
+    def depositPheromone(self, path: Path):
+        edge: Edge
+        for edge in path.edges:
+            edge.depositedPheromone += (1 / path.cost)
