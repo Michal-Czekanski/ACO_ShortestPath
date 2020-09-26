@@ -5,4 +5,9 @@ from src.Classes.Ant import Ant
 from src.Classes.Graph import Graph
 
 class ACOShortestPath:
-    pass
+
+    def __init__(self, pheromoneInfluence: float, desirabilityInfluence: float,\
+                        evaporationCoefficent: float):
+        self.pheromoneInfluence = pheromoneInfluence
+        self.desirabilityInfluence = desirabilityInfluence
+        self.evaporationCoefficent = evaporationCoefficent
