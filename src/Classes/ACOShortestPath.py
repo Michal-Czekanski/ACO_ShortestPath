@@ -12,7 +12,7 @@ class ACOShortestPath:
         self.desirabilityInfluence = desirabilityInfluence
         self.evaporationCoefficent = evaporationCoefficent
 
-    def __initialization__(graph: Graph):
+    def __initialization__(self, graph: Graph):
         edge: Edge
         for edge in graph.edges:
             edge.depositedPheromone = 1
