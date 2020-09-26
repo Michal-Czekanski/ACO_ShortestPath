@@ -16,3 +16,8 @@ class ACOShortestPath:
         edge: Edge
         for edge in graph.edges:
             edge.depositedPheromone = 1
+
+    def __resetTraversibility__(self, path: Path):
+        edge: Edge
+        for edge in path.edges:
+            edge.traversible = True
