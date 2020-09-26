@@ -12,6 +12,22 @@ class ACOShortestPath:
         self.desirabilityInfluence = desirabilityInfluence
         self.evaporationCoefficent = evaporationCoefficent
 
+    def findShortestPath(self, graph: Graph, start: Vertex, end: Vertex,\
+        iterNum: int, printEachPath: bool):
+        self.__initialization__(graph)
+
+        path = None
+        for i in range(iterNum):
+            ant = Ant(self.pheromoneInfluence, self.desirabilityInfluence)
+            path = ant.createPath(start, end)
+            ant.depositPheromone(path)
+            self.__pheromoneEvaporation__(graph)
+
+            if printEachPath:
+                path.printPath()
+
+        return path
+
     def __initialization__(self, graph: Graph):
         edge: Edge
         for edge in graph.edges:
