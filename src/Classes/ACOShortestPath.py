@@ -21,3 +21,8 @@ class ACOShortestPath:
         edge: Edge
         for edge in path.edges:
             edge.traversible = True
+
+    def __pheromoneEvaporation__(self, graph: Graph):
+        edge: Edge
+        for edge in graph.edges:
+            edge.depositedPheromone *= (1 - evaporationCoefficent)
