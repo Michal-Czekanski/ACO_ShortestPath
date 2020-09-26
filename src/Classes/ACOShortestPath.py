@@ -11,3 +11,8 @@ class ACOShortestPath:
         self.pheromoneInfluence = pheromoneInfluence
         self.desirabilityInfluence = desirabilityInfluence
         self.evaporationCoefficent = evaporationCoefficent
+
+    def __initialization__(graph: Graph):
+        edge: Edge
+        for edge in graph.edges:
+            edge.depositedPheromone = 1
