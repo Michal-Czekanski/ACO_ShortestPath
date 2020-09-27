@@ -14,18 +14,23 @@ class ACOShortestPath:
 
     def findShortestPath(self, graph: Graph, start: Vertex, end: Vertex,\
         iterNum: int, printEachPath: bool):
+        
         self.__initialization__(graph)
 
-        path = None
+        shortestPath = Path(start, end, float("inf"))
         for i in range(iterNum):
             ant = Ant(self.pheromoneInfluence, self.desirabilityInfluence)
             path = ant.createPath(start, end)
-            ant.depositPheromone(path)
-            self.__pheromoneEvaporation__(graph)
+            if not path is None:
+                self.__resetTraversibility__(path)
+                ant.depositPheromone(path)
+                self.__pheromoneEvaporation__(graph)
 
-            if printEachPath:
-                path.printPath()
-
+                if printEachPath:
+                    path.printPath()
+                    
+                if path.cost < shortestPath.cost:
+                    shortestPath = path
         return path
 
     def __initialization__(self, graph: Graph):
@@ -41,4 +46,4 @@ class ACOShortestPath:
     def __pheromoneEvaporation__(self, graph: Graph):
         edge: Edge
         for edge in graph.edges:
-            edge.depositedPheromone *= (1 - evaporationCoefficent)
+            edge.depositedPheromone *= (1 - self.evaporationCoefficent)
