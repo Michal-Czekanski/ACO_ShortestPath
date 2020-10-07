@@ -35,12 +35,11 @@ class Ant:
     def chooseEdgeToTraverse(self, possibleEdges: List[Edge]) -> Edge:
         chosenEdge = None
 
-        sumOfAll = sum([edge.desirability * edge.depositedPheromone for edge in possibleEdges]) \
-            * self.desirabilityInfluence * self.pheromoneInfluence
+        sumOfAll = sum([edge.desirability**(self.desirabilityInfluence) * edge.depositedPheromone**(self.pheromoneInfluence) for edge in possibleEdges])
 
         while chosenEdge is None:
             for edge in possibleEdges:
-                probabilityOfChoosing = round(((edge.desirability * self.desirabilityInfluence * edge.depositedPheromone * self.pheromoneInfluence) \
+                probabilityOfChoosing = round(((edge.desirability**(self.desirabilityInfluence) * edge.depositedPheromone**(self.pheromoneInfluence)) \
                     / sumOfAll), 2)
 
                 if random() < probabilityOfChoosing:
