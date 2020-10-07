@@ -1,0 +1,2 @@
+class ACOShortestPathInputReader:
+    pass
