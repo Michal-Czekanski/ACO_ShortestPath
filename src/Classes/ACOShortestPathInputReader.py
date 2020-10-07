@@ -7,22 +7,43 @@ class ACOShortestPathInputReader:
     def readGraphFromInputFile(inputFilename: str) -> Graph:
         file = open(inputFilename)
 
-        vertexesNum = int(file.readline().strip())
-        edgesNum = int(file.readline().strip())
+        try:
 
-        vertexes = [Vertex(i + 1) for i in range(vertexesNum)]
+            vertexesNum = int(file.readline().strip().split()[2])
+            edgesNum = int(file.readline().strip().split()[2])
 
-        edges = []
+            vertexes = [Vertex(i + 1) for i in range(vertexesNum)]
 
-        line = file.readline().strip()
-        while line:
-            content = line.split()
+            edges = []
 
-            vertexStart = int(content[1])
-            vertexEnd = int(content[2])
-            weight = int(content[3])
-
-            edges.append(Edge(vertexStart, vertexEnd, weight))
             line = file.readline().strip()
+            while line:
+                content = line.split()
 
+                # Vertex start
+                vertexStartInd = int(content[1])
+                vertexStart = None
+                vertex: Vertex
+                for vertex in vertexes:
+                    if vertex.ind == vertexStartInd:
+                        vertexStart = vertex
+
+                # Vertex end
+                vertexEndInd = int(content[2])
+                vertexEnd = None
+                vertex: Vertex
+                for vertex in vertexes:
+                    if vertex.ind == vertexEndInd:
+                        vertexEnd = vertex
+
+                # Weight
+                weight = int(content[3])
+
+                edges.append(Edge(vertexStart, vertexEnd, weight))
+                line = file.readline().strip()
+        except Exception as e:
+            file.close()
+            raise e
+
+        file.close()
         return Graph(vertexes, edges)
