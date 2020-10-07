@@ -29,6 +29,17 @@ class TestAnt(unittest.TestCase):
 
         self.assertIsNotNone(ant.createPath(vertex1, vertex2))
 
+    def test_makeVertexNotAccesible(self):
+        vertex1 = Vertex(1)
+        vertex2 = Vertex(2)
+        edge = Edge(vertex1, vertex2, 3)
+
+        ant = Ant(1, 1)
+
+        ant.makeVertexNotAccessible(vertex1)
+
+        self.assertFalse(edge.traversible)
+
 
 
 if __name__ == "__main__":
