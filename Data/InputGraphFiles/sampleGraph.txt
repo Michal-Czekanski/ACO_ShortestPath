@@ -1,0 +1,3 @@
+vertexesNum = 2
+edgesNum = 1
+1. 1 2 9
