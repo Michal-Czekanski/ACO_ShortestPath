@@ -73,10 +73,6 @@ weight =      {}
            str(self.path.cost),
            self.path.pathAsString())
 
-        if self.printAllPaths:
-            # TODO:
-            pass
-
         dataAsString += "------------------------------------"
 
         return dataAsString
