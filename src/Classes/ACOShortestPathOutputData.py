@@ -3,6 +3,8 @@ from datetime import datetime
 
 
 class ACOShortestPathOutputData:
+    timeFormatString = "%H:%M:%S %d/%m/Y"
+
     printAllPaths: bool
     path: Path
     elapsedTime: datetime
