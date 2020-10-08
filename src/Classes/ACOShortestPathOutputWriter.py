@@ -6,10 +6,10 @@ class ACOShortestPathOutputWriter:
     
 
     @staticmethod
-    def createOutpuFilename(launchingTimeAndDate: datetime.datetime, inputFilename: str,
-                            vertexStartInd: int, vertexEndInd: int, pheromoneInfluence: float,
-                            desirabilityInfluence: float,
-                            evaporationCoefficent: float, itersNum: int):
+    def createOutputFilename(launchingTimeAndDate: datetime.datetime, inputFilename: str,
+                             vertexStartInd: int, vertexEndInd: int, pheromoneInfluence: float,
+                             desirabilityInfluence: float,
+                             evaporationCoefficent: float, itersNum: int):
         """
         Creates unique output filename in format: inputFilename_launchTimeAndDate_parameters
         :param launchingTimeAndDate:
