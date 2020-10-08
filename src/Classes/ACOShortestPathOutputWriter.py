@@ -21,6 +21,7 @@ class ACOShortestPathOutputWriter:
             pathFromFile = allPathsFile.readline()
             while pathFromFile:
                 file.write(pathFromFile)
+                pathFromFile = allPathsFile.readline()
 
             allPathsFile.close()
         file.close()
