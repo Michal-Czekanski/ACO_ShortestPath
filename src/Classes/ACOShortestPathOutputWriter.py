@@ -11,7 +11,8 @@ class ACOShortestPathOutputWriter:
                              desirabilityInfluence: float,
                              evaporationCoefficent: float, itersNum: int):
         """
-        Creates unique output filename in format: inputFilename_launchTimeAndDate_parameters
+        Creates unique output filename in format: inputFilename_launchTimeAndDate_parameters.
+        launchTimeAndDate in format: Year_Month_Day_Hour_Minute
         :param launchingTimeAndDate:
         :param inputFilename:
         :param vertexStartInd:
@@ -23,7 +24,7 @@ class ACOShortestPathOutputWriter:
         :return: Unique output filename.
         """
         outputFilename = inputFilename.split('.')[0]
-        strLaunchingTimeAndDate = launchingTimeAndDate.strftime("%d_%m_%Y")
+        strLaunchingTimeAndDate = launchingTimeAndDate.strftime("%Y_%m_%d_%H_%M")
 
         outputFilename += "_{}_{}_{}_{}_{}_{}_{}.txt".format(strLaunchingTimeAndDate, str(vertexStartInd),
                                                              str(vertexEndInd),
