@@ -14,6 +14,15 @@ class ACOShortestPathOutputWriter:
         file = open(filePath, "a")
         file.write(contentToWrite)
 
+        if data.printAllPaths:
+            file.write("\nAll paths:\n")
+            allPathsFile = open(data.pathToAllPathsFile, "r")
+
+            pathFromFile = allPathsFile.readline()
+            while pathFromFile:
+                file.write(pathFromFile)
+
+            allPathsFile.close()
         file.close()
 
     @staticmethod
