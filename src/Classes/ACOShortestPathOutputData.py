@@ -24,7 +24,7 @@ class ACOShortestPathOutputData:
                  desirabilityInfluence: float,
                  evaporationCoefficent: float, itersNum: int, algorithmStartTime: datetime, algorithmEndTime: datetime,
                  elapsedTime: datetime, path: Path,
-                 printAllPaths: bool):
+                 printAllPaths: bool, pathToAllPathsFile: str):
         self.runNumber = runNumber
         self.inputFilename = inputFilename
         self.vertexStartInd = vertexStartInd
@@ -38,3 +38,4 @@ class ACOShortestPathOutputData:
         self.elapsedTime = elapsedTime
         self.path = path
         self.printAllPaths = printAllPaths
+        self.pathToAllPathsFile = pathToAllPathsFile
