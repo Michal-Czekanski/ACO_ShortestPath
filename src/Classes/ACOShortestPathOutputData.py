@@ -1,13 +1,15 @@
 from src.Classes.Path import Path
 from datetime import datetime
+from datetime import timedelta
 
 
 class ACOShortestPathOutputData:
     timeFormatString = "%H:%M:%S %d/%m/%Y"
 
+    pathToAllPathsFile: str
     printAllPaths: bool
     path: Path
-    elapsedTime: datetime
+    elapsedTime: timedelta
     algorithmEndTime: datetime
     algorithmStartTime: datetime
     itersNum: int
@@ -23,7 +25,7 @@ class ACOShortestPathOutputData:
                  pheromoneInfluence: float,
                  desirabilityInfluence: float,
                  evaporationCoefficent: float, itersNum: int, algorithmStartTime: datetime, algorithmEndTime: datetime,
-                 elapsedTime: datetime, path: Path,
+                 elapsedTime: timedelta, path: Path,
                  printAllPaths: bool, pathToAllPathsFile: str):
         self.runNumber = runNumber
         self.inputFilename = inputFilename
