@@ -1,0 +1,2 @@
+class ACOShortestPathOutputData:
+    pass
