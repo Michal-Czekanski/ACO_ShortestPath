@@ -1,9 +1,20 @@
+from src.Classes.ACOShortestPathOutputData import ACOShortestPathOutputData
+
 import datetime
 import os
 import typing
 
 
 class ACOShortestPathOutputWriter:
+
+    @staticmethod
+    def writeOutputToFile(filePath: str, data: ACOShortestPathOutputData):
+        contentToWrite = data.getDataAsString()
+
+        file = open(filePath, "a")
+        file.write(contentToWrite)
+
+        file.close()
 
     @staticmethod
     def createOutputFile(outputDataDirPath: str, launchingTimeAndDate: datetime.datetime, inputFilename: str,
