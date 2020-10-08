@@ -4,8 +4,8 @@ from src.Classes.Graph import Graph
 
 class ACOShortestPathInputReader:
     @staticmethod
-    def readGraphFromInputFile(inputFilename: str) -> Graph:
-        file = open(inputFilename)
+    def readGraphFromInputFile(inputFilePath: str) -> Graph:
+        file = open(inputFilePath)
 
         try:
 
