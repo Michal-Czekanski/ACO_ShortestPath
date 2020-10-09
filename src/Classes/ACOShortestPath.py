@@ -18,7 +18,7 @@ class ACOShortestPath:
 
         self.__initialization__(graph)
 
-        shortestPath = Path(start, end, float("inf"))
+        shortestPath = Path(start, [], float("inf"))
         for i in range(iterNum):
             ant = Ant(self.pheromoneInfluence, self.desirabilityInfluence)
             path = ant.createPath(start, end)
