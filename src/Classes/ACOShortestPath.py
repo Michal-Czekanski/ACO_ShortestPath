@@ -7,7 +7,9 @@ from src.Classes.Graph import Graph
 
 class ACOShortestPath:
 
-    def __init__(self, pheromoneInfluence: float, desirabilityInfluence: float, \
+    INITIAL_PHEROMONE_LEVEL = 1
+
+    def __init__(self, pheromoneInfluence: float, desirabilityInfluence: float,
                  evaporationCoefficent: float):
         self.pheromoneInfluence = pheromoneInfluence
         self.desirabilityInfluence = desirabilityInfluence
@@ -41,9 +43,15 @@ class ACOShortestPath:
         return shortestPath
 
     def __initialization__(self, graph: Graph):
+        """
+        Make all edges traversible and their pheromoneLevel = 1
+        :param graph:
+        :return:
+        """
         edge: Edge
         for edge in graph.edges:
-            edge.depositedPheromone = 1
+            edge.depositedPheromone = ACOShortestPath.INITIAL_PHEROMONE_LEVEL
+            edge.traversible = True
 
     def __resetTraversibility__(self, path: Path):
         """
