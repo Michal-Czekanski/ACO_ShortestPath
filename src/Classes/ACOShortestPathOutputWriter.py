@@ -52,7 +52,10 @@ class ACOShortestPathOutputWriter:
         try:
             outputFile = open(outputFilePath, "x")
             outputFile.close()
-        except Exception as e:
+        except FileExistsError:
+            outputFile = open(outputFilePath, "a")
+            outputFile.close()
+        except Exception:
             return None
 
         return outputFilePath
