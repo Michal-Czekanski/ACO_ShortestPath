@@ -23,22 +23,22 @@ class ACOShortestPath:
         shortestPath = Path(start, [], float("inf"))
         for i in range(iterNum):
             ant = Ant(self.pheromoneInfluence, self.desirabilityInfluence)
-            path = ant.createPath(start, end)
-            if not path is None:
+            path, antReachedEnd = ant.createPath(start, end)
+            while not antReachedEnd:
+                path, antReachedEnd = ant.createPath(start, end)
                 self.__resetTraversibility__(path)
-                ant.depositPheromone(path)
-                self.__pheromoneEvaporation__(graph)
 
-                if printEachPath:
-                    stringToPrint = "{}. {}".format(str(i + 1), path.pathAsString())
-                    print(stringToPrint)
+            self.__resetTraversibility__(path)
+            ant.depositPheromone(path)
+            self.__pheromoneEvaporation__(graph)
 
-                if path.cost < shortestPath.cost:
-                    shortestPath = path
-            else:
-                if printEachPath:
-                    stringToPrint = "{}. Path not found".format(str(i + 1))
-                    print(stringToPrint)
+            if printEachPath:
+                stringToPrint = "{}. {}".format(str(i + 1), path.pathAsString())
+                print(stringToPrint)
+
+            if path.cost < shortestPath.cost:
+                shortestPath = path
+
 
         return shortestPath
 
