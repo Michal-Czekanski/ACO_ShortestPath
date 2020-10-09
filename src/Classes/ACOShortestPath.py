@@ -38,7 +38,7 @@ class ACOShortestPath:
                     stringToPrint = "{}. Path not found".format(str(i + 1))
                     print(stringToPrint)
 
-        return path
+        return shortestPath
 
     def __initialization__(self, graph: Graph):
         edge: Edge
