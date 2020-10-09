@@ -22,14 +22,14 @@ class Vertex():
 
     def doVertexTraversible(self):
         """
-        Makes self traversible, accesible.
+        Makes all edges traversible.
         """
         for edge in self.edges:
             edge.traversible = True
 
     def doVertexNotTraversible(self):
         """
-        Makes self not traversible, not accesible.
+        Makes all edges not traversible and therefore self not accessible.
         """
         for edge in self.edges:
             edge.traversible = False
