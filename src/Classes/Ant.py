@@ -21,7 +21,7 @@ class Ant:
 
         while (not currentVertex is end) and currentVertex.getTraversibleEdges():
             chosenEdge: Edge = self.chooseEdgeToTraverse(traversibleEdges)
-            self.makeVertexNotAccessible(currentVertex)
+            currentVertex.doVertexNotTraversible()
             pathEdges.append(chosenEdge)
             cost += chosenEdge.weight
 
@@ -54,7 +54,3 @@ class Ant:
         for edge in path.edges:
             edge.depositedPheromone += (1 / path.cost)
 
-    def makeVertexNotAccessible(self, vertex: Vertex):
-        edge:Edge
-        for edge in vertex.edges:
-            edge.traversible = False
