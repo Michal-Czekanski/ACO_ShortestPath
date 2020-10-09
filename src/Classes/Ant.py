@@ -6,6 +6,7 @@ from random import random
 
 from typing import List
 
+
 class Ant:
 
     def __init__(self, pheromoneInfluence: float, desirabilityInfluence: float):
@@ -35,12 +36,15 @@ class Ant:
     def chooseEdgeToTraverse(self, possibleEdges: List[Edge]) -> Edge:
         chosenEdge = None
 
-        sumOfAll = sum([edge.desirability**(self.desirabilityInfluence) * edge.depositedPheromone**(self.pheromoneInfluence) for edge in possibleEdges])
+        sumOfAll = sum(
+            [edge.desirability ** self.desirabilityInfluence * edge.depositedPheromone ** self.pheromoneInfluence
+             for edge in possibleEdges])
 
         while chosenEdge is None:
             for edge in possibleEdges:
-                probabilityOfChoosing = round(((edge.desirability**(self.desirabilityInfluence) * edge.depositedPheromone**(self.pheromoneInfluence)) \
-                    / sumOfAll), 2)
+                probabilityOfChoosing = round(((edge.desirability ** (
+                    self.desirabilityInfluence) * edge.depositedPheromone ** self.pheromoneInfluence)
+                                               / sumOfAll), 2)
 
                 if random() < probabilityOfChoosing:
                     chosenEdge = edge
@@ -48,9 +52,7 @@ class Ant:
 
         return chosenEdge
 
-
     def depositPheromone(self, path: Path):
         edge: Edge
         for edge in path.edges:
             edge.depositedPheromone += (1 / path.cost)
-
