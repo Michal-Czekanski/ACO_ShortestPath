@@ -15,7 +15,8 @@ class TestAnt(unittest.TestCase):
 
         ant = Ant(1, 1)
 
-        self.assertIsNone(ant.createPath(vertex1, vertex2))
+        actualPath, antReachedEnd = ant.createPath(vertex1, vertex2)
+        self.assertFalse(antReachedEnd)
 
     def test_createPath2(self):
         """Case 2: Path between vertexes exists.
@@ -27,7 +28,9 @@ class TestAnt(unittest.TestCase):
 
         ant = Ant(1, 1)
 
-        self.assertIsNotNone(ant.createPath(vertex1, vertex2))
+        actualPath, antReachedEnd = ant.createPath(vertex1, vertex2)
+        self.assertIsNotNone(actualPath)
+        self.assertTrue(antReachedEnd)
 
     def test_makeVertexNotAccesible(self):
         vertex1 = Vertex(1)
