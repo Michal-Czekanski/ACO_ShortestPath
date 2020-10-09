@@ -19,7 +19,7 @@ class Ant:
         currentVertex: Vertex = start
         traversibleEdges = currentVertex.getTraversibleEdges()
 
-        while (not currentVertex is end) and currentVertex.getTraversibleEdges():
+        while (not currentVertex is end) and traversibleEdges:
             chosenEdge: Edge = self.chooseEdgeToTraverse(traversibleEdges)
             currentVertex.doVertexNotTraversible()
             pathEdges.append(chosenEdge)
