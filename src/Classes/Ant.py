@@ -5,6 +5,7 @@ from src.Classes.Path import Path
 from random import random
 
 from typing import List
+from typing import Tuple
 
 
 class Ant:
@@ -13,7 +14,11 @@ class Ant:
         self.pheromoneInfluence = pheromoneInfluence
         self.desirabilityInfluence = desirabilityInfluence
 
-    def createPath(self, start: Vertex, end: Vertex):
+    def createPath(self, start: Vertex, end: Vertex) -> Tuple[Path, bool]:
+        """
+        Tries to create path from start to end. \n
+        :return: Tuple[createdPath: Path, antReachedEnd: bool]
+        """
         cost = 0
         pathEdges = []
 
@@ -29,9 +34,11 @@ class Ant:
             currentVertex = chosenEdge.getOtherEnd(currentVertex)
             traversibleEdges = currentVertex.getTraversibleEdges()
 
+        createdPath = Path(start, pathEdges, cost)
+        antReachedEnd = False
         if currentVertex is end:
-            return Path(start, pathEdges, cost)
-        return None
+            antReachedEnd = True
+        return createdPath, antReachedEnd
 
     def chooseEdgeToTraverse(self, possibleEdges: List[Edge]) -> Edge:
         chosenEdge = None
