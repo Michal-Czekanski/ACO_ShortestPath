@@ -46,9 +46,16 @@ class ACOShortestPath:
             edge.depositedPheromone = 1
 
     def __resetTraversibility__(self, path: Path):
+        """
+        Makes all vertexes from given path accesbile \n
+        by making all edges of each vertex traversible.
+        """
+        currentVertex: Vertex = path.beginning
+        currentVertex.doVertexTraversible()
         edge: Edge
         for edge in path.edges:
-            edge.traversible = True
+            currentVertex = edge.getOtherEnd(currentVertex)
+            currentVertex.doVertexTraversible()
 
     def __pheromoneEvaporation__(self, graph: Graph):
         edge: Edge
