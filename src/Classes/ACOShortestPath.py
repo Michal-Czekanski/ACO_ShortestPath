@@ -4,17 +4,18 @@ from src.Classes.Path import Path
 from src.Classes.Ant import Ant
 from src.Classes.Graph import Graph
 
+
 class ACOShortestPath:
 
-    def __init__(self, pheromoneInfluence: float, desirabilityInfluence: float,\
-                        evaporationCoefficent: float):
+    def __init__(self, pheromoneInfluence: float, desirabilityInfluence: float, \
+                 evaporationCoefficent: float):
         self.pheromoneInfluence = pheromoneInfluence
         self.desirabilityInfluence = desirabilityInfluence
         self.evaporationCoefficent = evaporationCoefficent
 
-    def findShortestPath(self, graph: Graph, start: Vertex, end: Vertex,\
-        iterNum: int, printEachPath: bool):
-        
+    def findShortestPath(self, graph: Graph, start: Vertex, end: Vertex,
+                         iterNum: int, printEachPath: bool):
+
         self.__initialization__(graph)
 
         shortestPath = Path(start, end, float("inf"))
@@ -27,10 +28,16 @@ class ACOShortestPath:
                 self.__pheromoneEvaporation__(graph)
 
                 if printEachPath:
-                    path.printPath()
-                    
+                    stringToPrint = "{}. {}".format(str(i + 1), path.pathAsString())
+                    print(stringToPrint)
+
                 if path.cost < shortestPath.cost:
                     shortestPath = path
+            else:
+                if printEachPath:
+                    stringToPrint = "{}. Path not found".format(str(i + 1))
+                    print(stringToPrint)
+
         return path
 
     def __initialization__(self, graph: Graph):
