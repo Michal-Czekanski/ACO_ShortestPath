@@ -36,8 +36,6 @@ if len(sys.argv) != 10:
           "desirability_influence evaporation_coefficent iters_num runs_num print_all_paths[y/n]")
     exit()
 
-launchingTimeAndDate: datetime = datetime.now()
-
 try:
     inputFilename: str = sys.argv[1]
     vertexStartInd: int = int(sys.argv[2])
@@ -75,9 +73,9 @@ for vertex in inputGraph.vertexes:
         vertexEnd = vertex
         break
 
-outputFilePath = ACOShortestPathOutputWriter.createOutputFile(outputDataDirPath, launchingTimeAndDate, inputFilename,
-                                                              vertexStartInd, vertexEndInd, pheromoneInfluence,
-                                                              desirabilityInfluence, evaporationCoefficent, itersNum)
+outputFilePath = ACOShortestPathOutputWriter.createOutputFile(outputDataDirPath, inputFilename, vertexStartInd,
+                                                              vertexEndInd, pheromoneInfluence, desirabilityInfluence,
+                                                              evaporationCoefficent, itersNum)
 
 for runNum in range(1, runsNum + 1):
 

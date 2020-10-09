@@ -27,14 +27,12 @@ class ACOShortestPathOutputWriter:
         file.close()
 
     @staticmethod
-    def createOutputFile(outputDataDirPath: str, launchingTimeAndDate: datetime.datetime, inputFilename: str,
-                         vertexStartInd: int, vertexEndInd: int, pheromoneInfluence: float,
-                         desirabilityInfluence: float,
-                         evaporationCoefficent: float, itersNum: int) -> typing.Union[str, None]:
+    def createOutputFile(outputDataDirPath: str, inputFilename: str, vertexStartInd: int, vertexEndInd: int,
+                         pheromoneInfluence: float, desirabilityInfluence: float, evaporationCoefficent: float,
+                         itersNum: int) -> typing.Union[str, None]:
         """
         Creates output file with unique name.
         :param outputDataDirPath:
-        :param launchingTimeAndDate:
         :param inputFilename:
         :param vertexStartInd:
         :param vertexEndInd:
@@ -45,8 +43,7 @@ class ACOShortestPathOutputWriter:
         :return: If file was created successfully: file's absolute path, else: None
         """
 
-        outputFilename = ACOShortestPathOutputWriter.createOutputFilename(launchingTimeAndDate, inputFilename,
-                                                                          vertexStartInd, vertexEndInd,
+        outputFilename = ACOShortestPathOutputWriter.createOutputFilename(inputFilename, vertexStartInd, vertexEndInd,
                                                                           pheromoneInfluence, desirabilityInfluence,
                                                                           evaporationCoefficent, itersNum)
 
@@ -61,14 +58,10 @@ class ACOShortestPathOutputWriter:
         return outputFilePath
 
     @staticmethod
-    def createOutputFilename(launchingTimeAndDate: datetime.datetime, inputFilename: str,
-                             vertexStartInd: int, vertexEndInd: int, pheromoneInfluence: float,
-                             desirabilityInfluence: float,
-                             evaporationCoefficent: float, itersNum: int):
+    def createOutputFilename(inputFilename: str, vertexStartInd: int, vertexEndInd: int, pheromoneInfluence: float,
+                             desirabilityInfluence: float, evaporationCoefficent: float, itersNum: int):
         """
-        Creates unique output filename in format: inputFilename_launchTimeAndDate_parameters.
-        launchTimeAndDate in format: Year_Month_Day_Hour_Minute
-        :param launchingTimeAndDate:
+        Creates unique output filename in format: inputFilename__parameters.
         :param inputFilename:
         :param vertexStartInd:
         :param vertexEndInd:
@@ -79,11 +72,10 @@ class ACOShortestPathOutputWriter:
         :return: Unique output filename.
         """
         outputFilename = inputFilename.split('.')[0]
-        strLaunchingTimeAndDate = launchingTimeAndDate.strftime("%Y_%m_%d_%H_%M")
 
-        outputFilename += "_{}_{}_{}_{}_{}_{}_{}.txt".format(strLaunchingTimeAndDate, str(vertexStartInd),
-                                                             str(vertexEndInd),
-                                                             str(pheromoneInfluence), str(desirabilityInfluence),
-                                                             str(evaporationCoefficent), str(itersNum))
+        outputFilename += "_{}_{}_{}_{}_{}_{}.txt".format(str(vertexStartInd),
+                                                          str(vertexEndInd),
+                                                          str(pheromoneInfluence), str(desirabilityInfluence),
+                                                          str(evaporationCoefficent), str(itersNum))
 
         return outputFilename

@@ -178,14 +178,11 @@ weight =      9
         testItersNum = 10
 
         expectedOutputFilename = "testInputFilename_2020_01_29_12_59_1_2_0.1_0.1_0.1_10.txt"
-        resultOutputFilename = ACOShortestPathOutputWriter.createOutputFilename(testLaunchingTimeAndDate,
-                                                                                testInputFilename,
-                                                                                testVertexStartInd,
+        resultOutputFilename = ACOShortestPathOutputWriter.createOutputFilename(testInputFilename, testVertexStartInd,
                                                                                 testVertexEndInd,
                                                                                 testPheromoneInfluence,
                                                                                 testDesirabilityInfluence,
-                                                                                testEvaporationCoefficent,
-                                                                                testItersNum)
+                                                                                testEvaporationCoefficent, testItersNum)
 
         self.assertEqual(expectedOutputFilename, resultOutputFilename)
 
@@ -205,14 +202,11 @@ weight =      9
         expectedOutputFilePath = os.path.join(outputDataDirPath,
                                               "testInputFilename_2020_01_29_12_59_1_2_0.1_0.1_0.1_10.txt")
 
-        resultOutputFilePath = ACOShortestPathOutputWriter.createOutputFile(outputDataDirPath, testLaunchingTimeAndDate,
-                                                                            testInputFilename,
-                                                                            testVertexStartInd,
-                                                                            testVertexEndInd,
+        resultOutputFilePath = ACOShortestPathOutputWriter.createOutputFile(outputDataDirPath, testInputFilename,
+                                                                            testVertexStartInd, testVertexEndInd,
                                                                             testPheromoneInfluence,
                                                                             testDesirabilityInfluence,
-                                                                            testEvaporationCoefficent,
-                                                                            testItersNum)
+                                                                            testEvaporationCoefficent, testItersNum)
 
         self.assertEqual(expectedOutputFilePath, resultOutputFilePath)
         self.assertTrue(os.path.isfile(resultOutputFilePath))
