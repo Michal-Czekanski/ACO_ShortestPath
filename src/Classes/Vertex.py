@@ -1,8 +1,9 @@
 from copy import copy
 
+
 class Vertex():
     def __init__(self, ind: int):
-        self.ind= ind
+        self.ind = ind
         self.edges = []
 
     def getTraversibleEdges(self):
@@ -18,3 +19,17 @@ class Vertex():
         tmpEdgesList = copy(self.edges)
         for edge in tmpEdgesList:
             edge.delete()
+
+    def doVertexTraversible(self):
+        """
+        Makes self traversible, accesible.
+        """
+        for edge in self.edges:
+            edge.traversible = True
+
+    def doVertexNotTraversible(self):
+        """
+        Makes self not traversible, not accesible.
+        """
+        for edge in self.edges:
+            edge.traversible = False
