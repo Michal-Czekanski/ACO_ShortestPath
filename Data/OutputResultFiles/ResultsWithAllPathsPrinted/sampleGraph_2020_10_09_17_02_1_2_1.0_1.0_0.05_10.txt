@@ -1,0 +1,60 @@
+
+------------------------------------
+Run:          1
+Input:        sampleGraph.txt
+Parameters:
+    - vertex_start =            1
+    - vertex_end =              2
+    - pheromone_influence =     1.0
+    - desirability_influence =  1.0
+    - evaporation_coefficent =  0.05
+    - iters_num  =              10
+Start:        17:02:48 09/10/2020
+End:          17:02:48 09/10/2020
+Time running: 0.0 sec
+
+Shortest path:
+weight =      9
+1 - 2 --- weight = 9
+------------------------------------
+All paths:
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+
+------------------------------------
+Run:          2
+Input:        sampleGraph.txt
+Parameters:
+    - vertex_start =            1
+    - vertex_end =              2
+    - pheromone_influence =     1.0
+    - desirability_influence =  1.0
+    - evaporation_coefficent =  0.05
+    - iters_num  =              10
+Start:        17:02:48 09/10/2020
+End:          17:02:48 09/10/2020
+Time running: 0.0 sec
+
+Shortest path:
+weight =      9
+1 - 2 --- weight = 9
+------------------------------------
+All paths:
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
+1 - 2 --- weight = 9
